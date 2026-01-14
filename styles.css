@@ -1,0 +1,429 @@
+/* --- 1. VARIABLES Y RESET GLOBAL --- */
+:root {
+    --color-primario: #d32f2f;       /* Rojo marca */
+    --color-primario-dark: #b71c1c;  
+    --color-secundario: #1e3a5f;     /* Azul oscuro */
+    --color-texto: #2c3e50;          
+    --color-fondo-claro: #f0f4f8;    
+    --color-footer: #1e3a5f;         
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* TIPOGRAFÍA NUEVA */
+    font-family: 'Lato', sans-serif; 
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: #fff;
+}
+
+/* Títulos con tipografía moderna */
+h1, h2, h3, h4, .btn-primary, .btn-nav {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 2. COMPONENTES (Botones) --- */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-primario);
+    color: white;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primario-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+}
+
+/* --- 3. HEADER Y NAVEGACIÓN --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 90px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
+    max-height: 75px;
+    width: auto;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav .nav-links li a {
+    font-weight: 600; /* Un poco más grueso */
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav .nav-links li a:hover {
+    color: var(--color-primario);
+}
+
+/* Botón destacado en menú */
+.btn-nav {
+    background-color: var(--color-primario);
+    color: white !important;
+    padding: 10px 25px !important;
+    border-radius: 25px;
+    transition: background 0.3s;
+}
+.btn-nav:hover {
+    background-color: var(--color-primario-dark);
+}
+
+/* --- MENÚ HAMBURGUESA (CELULAR) --- */
+.menu-toggle {
+    display: none; /* Oculto en PC */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-texto);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Visible en celular */
+    }
+
+    nav .nav-links {
+        position: absolute;
+        top: 90px;
+        left: -100%; /* Escondido a la izquierda */
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        transition: left 0.4s ease;
+        border-top: 1px solid #eee;
+    }
+
+    nav .nav-links.active {
+        left: 0; /* Aparece en pantalla */
+    }
+
+    nav .nav-links li {
+        margin: 15px 0;
+    }
+}
+
+/* --- 4. SECCIÓN HERO (Portada) --- */
+.hero {
+    /* Fondo con degradado y efecto Parallax (Fixed) */
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.85), rgba(44, 62, 80, 0.9)), url('tu-imagen-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* EFECTO PARALLAX */
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    margin-top: -90px; /* Compensa el header sticky */
+    padding-top: 90px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem; /* Título grande */
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* --- 5. SECCIONES GENERALES --- */
+.capacitations, .school-section, .locations-section, .registration-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.capacitations { text-align: center; }
+.school-section { text-align: center; background-color: #fff; }
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 60px;
+}
+
+/* --- 6. TARJETAS DE ACTIVIDADES --- */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.category {
+    background: #fff;
+    padding: 40px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 300px; 
+    text-align: center;
+    /* Efecto rebote suave */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    border: 1px solid #eee;
+}
+
+.category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-color: var(--color-primario);
+}
+
+.category i {
+    font-size: 3rem;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.category:hover i {
+    transform: scale(1.2); /* Icono crece */
+}
+
+.category h3 {
+    font-size: 1.3rem;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+}
+
+/* --- 7. IDENTIDAD (Misión/Visión) --- */
+.identity-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.identity-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s;
+}
+
+.identity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--color-primario);
+}
+
+.identity-card i {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+/* --- 8. SEDES --- */
+.locations-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.locations-illustration img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.locations-info { flex: 1; }
+
+@media (max-width: 900px) {
+    .locations-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .locations-list {
+        text-align: left; /* Mantiene la lista alineada aunque el bloque esté centrado */
+        display: inline-block;
+    }
+}
+
+/* --- 9. FORMULARIO --- */
+.registration-section {
+    background-color: var(--color-fondo-claro);
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.registration-form { text-align: left; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.btn-block { width: 100%; font-size: 1.1rem; }
+
+/* --- 10. WHATSAPP FLOTANTE --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20b85c;
+}
+
+/* --- 11. FOOTER --- */
+footer {
+    background-color: var(--color-footer);
+    color: white;
+    padding: 60px 5% 20px;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links a { color: #bbb; transition: 0.3s; }
+.footer-links a:hover { color: var(--color-primario); padding-left: 5px; }
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Ajustes Responsive Generales */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
